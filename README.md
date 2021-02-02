@@ -1,0 +1,59 @@
+<h1 align="center">
+  <br>
+  <br>
+  <br>
+	<p style="font-size: 64px;">[mbm] = (🌞 -> 🌛 || 🌛 -> 🌞)</p>
+  <br>
+  <br>
+  <br>
+</h1>
+<p align="center">
+<em>
+Lyrical as usual, Apple said about Dark Mode that it’s a “dramatic new look that helps you focus on your work,’’ as well as a “distraction-free environment that’s easy on the eyes — in every way”.
+</em>
+<br>
+<br>
+<em>
+Google was much more pragmatic, saying Dark Theme can “reduce power usage by a significant amount”, “improve visibility for users with low vision and those who are sensitive to bright light” and “make it easier for anyone to use a device in a low-light environment”.
+</em>
+<br>
+<br>
+<em>👦 Archer: Dark Mode IS NOT Dark Design or Dark UI in Javascript.</em>
+<br>
+<br>
+<br>
+</p>
+
+# What is mbm ?
+
+> It's short name for CSS Mix Blend Mode.
+
+# About
+
+🌞 🌛 Play with your Dark Mode.
+
+# Quick Start
+
+```javascript
+const mbm = MixBlendMode({
+  backgroundColor: '#FFFFFF',
+  enable: true
+});
+
+// toggle
+mbm.toggle()
+
+// show
+mbm.show()
+
+// hide
+mbm.hide()
+
+// get auto-increment zIndex
+mbm.izIndex()
+
+```
+
+# Reference
+
+* [The past, present, and future of Dark Mode](https://uxdesign.cc/the-past-present-and-future-of-dark-mode-9254f2956ec7)
