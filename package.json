@@ -1,0 +1,33 @@
+{
+  "name": "mbm",
+  "version": "1.0.0",
+  "description": "Play with your Dark Mode.",
+  "main": "dist/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/rollup --config",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qddegtya/mbm.git"
+  },
+  "keywords": [
+    "darkmode",
+    "tool"
+  ],
+  "author": "xiaoa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/qddegtya/mbm/issues"
+  },
+  "homepage": "https://github.com/qddegtya/mbm#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.13",
+    "@babel/preset-env": "^7.12.13",
+    "@rollup/plugin-babel": "^5.2.3",
+    "rollup": "^2.38.4"
+  }
+}
