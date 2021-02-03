@@ -1,3 +1,5 @@
+import DefaultUIController from './ui-controller/default';
+
 let MBM_LAYER_ROOT_DEFAULT_STYLE = [
   ["backgroundColor", "transparent"],
   ["pointerEvents", "none"],
@@ -93,5 +95,13 @@ const MixBlendMode = ({
     izIndex,
   };
 };
+
+// ui controller
+MixBlendMode.UIController = (Controller) => {
+  if (Controller && typeof Controller === 'function') {
+    return Controller(MixBlendMode);
+  }
+  DefaultUIController(MixBlendMode);
+}
 
 export default MixBlendMode;

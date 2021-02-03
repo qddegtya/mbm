@@ -4,6 +4,18 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.mbm = factory());
 }(this, (function () { 'use strict';
 
+  // default ui
+  var DefaultUIController = (function (MixBlendMode) {
+    MixBlendMode({
+      backgroundColor: "#000000",
+      enabled: false
+    });
+    return {
+      render: function render() {
+      }
+    };
+  });
+
   var MBM_LAYER_ROOT_DEFAULT_STYLE = [["backgroundColor", "transparent"], ["pointerEvents", "none"], ["position", "absolute"], ["width", "100%"], ["height", "100%"], ["top", "0"], ["left", "0"]];
   var ROOT_LAYER_ID = "@@a-mix-blend-mode-layer";
 
@@ -74,6 +86,15 @@
       },
       izIndex: izIndex
     };
+  }; // ui controller
+
+
+  MixBlendMode.UIController = function (Controller) {
+    if (Controller && typeof Controller === 'function') {
+      return Controller(MixBlendMode);
+    }
+
+    DefaultUIController(MixBlendMode);
   };
 
   return MixBlendMode;

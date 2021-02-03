@@ -54,6 +54,22 @@ mbm.izIndex()
 
 ```
 
+# UI Controller
+
+**Default UI Controller**
+
+```
+MixBlendMode.UIController().render()
+```
+
+**You can write your own ui controller**
+
+```javascript
+const yourController = MixBlendMode.UIController((MixBlendMode) => {
+  // controller logic
+})
+```
+
 # Reference
 
 * [The past, present, and future of Dark Mode](https://uxdesign.cc/the-past-present-and-future-of-dark-mode-9254f2956ec7)
