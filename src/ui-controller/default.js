@@ -7,7 +7,22 @@ export default (MixBlendMode) => {
 
   return {
     render() {
-      const SwitchWidget = `<div id="mbm-default-ui-controller"><div id="switch"></div></div>`;
+      const Registry = RegMixBlendMode._Singleton(
+        // eslint-disable-next-line
+        () => document.createElement("div"),
+        (ele) => {
+          ele.id = "mbm-switch";
+
+          // eslint-disable-next-line
+          document.body.appendChild(ele);
+        },
+        (ele) => {
+          // eslint-disable-next-line
+          ele && document.body.removeChild(ele);
+        }
+      );
+
+      const SwitchWidget = Registry.create();
     },
   };
 };

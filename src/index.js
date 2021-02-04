@@ -104,4 +104,6 @@ MixBlendMode.UIController = (Controller) => {
   DefaultUIController(MixBlendMode);
 }
 
+MixBlendMode._Singleton = Singleton;
+
 export default MixBlendMode;
