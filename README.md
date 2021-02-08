@@ -70,6 +70,12 @@ const yourController = MixBlendMode.UIController((MixBlendMode) => {
 })
 ```
 
+# Examples
+
+```shell
+$ npm run dev
+```
+
 # Reference
 
 * [The past, present, and future of Dark Mode](https://uxdesign.cc/the-past-present-and-future-of-dark-mode-9254f2956ec7)
