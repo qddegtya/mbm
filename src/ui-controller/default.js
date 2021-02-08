@@ -1,17 +1,20 @@
 // default ui
 export default (MixBlendMode) => {
   const mbm = MixBlendMode({
-    backgroundColor: "#000000",
+    backgroundColor: "#FFFFFF",
     enabled: false,
   });
 
   return {
     render() {
-      const Registry = RegMixBlendMode._Singleton(
+      const Registry = MixBlendMode._Singleton(
         // eslint-disable-next-line
-        () => document.createElement("div"),
+        () => document.createElement("button"),
         (ele) => {
           ele.id = "mbm-switch";
+          ele.style.zIndex = mbm.izIndex();
+
+          ele.innerText = "toggle";
 
           // eslint-disable-next-line
           document.body.appendChild(ele);
@@ -23,6 +26,10 @@ export default (MixBlendMode) => {
       );
 
       const SwitchWidget = Registry.create();
+
+      SwitchWidget.addEventListener("click", () => {
+        mbm.toggle();
+      });
     },
   };
 };

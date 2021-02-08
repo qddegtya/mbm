@@ -1,17 +1,35 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.mbm = factory());
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.MixBlendMode = factory());
 }(this, (function () { 'use strict';
 
   // default ui
   var DefaultUIController = (function (MixBlendMode) {
-    MixBlendMode({
-      backgroundColor: "#000000",
+    var mbm = MixBlendMode({
+      backgroundColor: "#FFFFFF",
       enabled: false
     });
     return {
       render: function render() {
+        var Registry = MixBlendMode._Singleton( // eslint-disable-next-line
+        function () {
+          return document.createElement("button");
+        }, function (ele) {
+          ele.id = "mbm-switch";
+          ele.style.zIndex = mbm.izIndex();
+          ele.innerText = "toggle"; // eslint-disable-next-line
+
+          document.body.appendChild(ele);
+        }, function (ele) {
+          // eslint-disable-next-line
+          ele && document.body.removeChild(ele);
+        });
+
+        var SwitchWidget = Registry.create();
+        SwitchWidget.addEventListener("click", function () {
+          mbm.toggle();
+        });
       }
     };
   });
@@ -69,9 +87,9 @@
         enable = _ref$enable === void 0 ? false : _ref$enable;
 
     MBM_LAYER_ROOT_DEFAULT_STYLE.push(["mixBlendMode", mixBlendMode], ["zIndex", zIndex], ["backgroundColor", backgroundColor]);
-    var MBM_LAYER_ROOT = Registry.create();
     var _showState = enable;
     MBM_LAYER_ROOT_DEFAULT_STYLE.push(["display", _showState ? "block" : "none"]);
+    var MBM_LAYER_ROOT = Registry.create();
     return {
       show: function show() {
         MBM_LAYER_ROOT.style.display = "block";
@@ -90,12 +108,14 @@
 
 
   MixBlendMode.UIController = function (Controller) {
-    if (Controller && typeof Controller === 'function') {
+    if (Controller && typeof Controller === "function") {
       return Controller(MixBlendMode);
     }
 
-    DefaultUIController(MixBlendMode);
+    return DefaultUIController(MixBlendMode);
   };
+
+  MixBlendMode._Singleton = Singleton;
 
   return MixBlendMode;
 

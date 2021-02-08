@@ -5,7 +5,7 @@ export default {
   output: {
     file: 'dist/index.umd.js',
     format: 'umd',
-    name: "mbm"
+    name: "MixBlendMode"
   },
   plugins: [
     babel()

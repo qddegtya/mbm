@@ -1,4 +1,4 @@
-import DefaultUIController from './ui-controller/default';
+import DefaultUIController from "./ui-controller/default";
 
 let MBM_LAYER_ROOT_DEFAULT_STYLE = [
   ["backgroundColor", "transparent"],
@@ -73,10 +73,11 @@ const MixBlendMode = ({
     ["backgroundColor", backgroundColor]
   );
 
-  let MBM_LAYER_ROOT = Registry.create();
   let _showState = enable;
 
   MBM_LAYER_ROOT_DEFAULT_STYLE.push(["display", _showState ? "block" : "none"]);
+
+  let MBM_LAYER_ROOT = Registry.create();
 
   return {
     show() {
@@ -98,11 +99,11 @@ const MixBlendMode = ({
 
 // ui controller
 MixBlendMode.UIController = (Controller) => {
-  if (Controller && typeof Controller === 'function') {
+  if (Controller && typeof Controller === "function") {
     return Controller(MixBlendMode);
   }
-  DefaultUIController(MixBlendMode);
-}
+  return DefaultUIController(MixBlendMode);
+};
 
 MixBlendMode._Singleton = Singleton;
 
