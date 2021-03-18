@@ -7,6 +7,7 @@ const Router = require("koa-router");
 const path = require("path");
 
 const app = new Koa();
+const PORT = 3333;
 
 app.use(
   views(path.resolve(__dirname, "../examples"), {
@@ -25,4 +26,6 @@ router.get("/", async (ctx) => {
 
 app.use(router.middleware());
 
-app.listen(3333);
+app.listen(PORT, () => {
+  console.log(`🌍 listening on: http://0.0.0.0:${PORT}`)
+});
